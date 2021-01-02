@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 
-import classes from "./App.module.scss";
 
-import { Input, Button} from "@material-ui/core";
+
+import { Input, Button } from "@material-ui/core";
 import { PDFDocument, rgb } from "pdf-lib";
 import fontkit from "@pdf-lib/fontkit";
 import fileDownload from "js-file-download";
-
+import FormContainer from "./style";
 import logo from "./assets/logo.png";
 
 import pdf from "./blankCerti.pdf";
@@ -54,15 +54,15 @@ const App = () => {
   }
 
   return (
-    <div className={classes.FormContainer}>
-      <img className={classes.FormContainer_Img} src={logo} alt="logo" />
+    <FormContainer>
+      <img className="Img" src={logo} alt="logo" />
 
-      <div className={classes.inputsContainer}>
+      <div className="inputsContainer">
         <Input
           autoFocus
           placeholder="Name"
           value={name}
-          className={classes.FormContainer_nameInput}
+          className="nameInput"
           onChange={(e) => setName(e.target.value)}
         />
         <Input
@@ -72,7 +72,7 @@ const App = () => {
         />
       </div>
       <Button
-        className={classes.FormContainer_btn}
+        className="btn"
         primary
         variant="contained"
         disabled={!name || !purpose}
@@ -80,7 +80,7 @@ const App = () => {
       >
         Print The Certificate
       </Button>
-    </div>
+    </FormContainer>
   );
 };
 
